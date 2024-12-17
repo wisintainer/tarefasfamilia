@@ -1,0 +1,55 @@
+/* Painel principal */
+.subscriber-panel {
+	width: 60%;
+	margin: 0 auto;
+	text-align: center;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	padding: 20px;
+	background-color: #f9f9f9;
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo do YouTube */
+.youtube-logo {
+	width: 150px;
+	margin-bottom: 20px;
+}
+
+/* Título principal */
+.subscriber-title {
+	font-family: Arial, sans-serif;
+	font-size: 24px;
+	color: #333;
+	margin-bottom: 15px;
+}
+
+/* Número de inscritos */
+.subscriber-count {
+	font-size: 3.5em;
+	font-weight: bold;
+	color: #e53935;
+	margin-bottom: 20px;
+}
+
+/* Última atualização */
+.last-update-time {
+	font-size: 0.7em;
+	font-weight: bold;
+	color: rgb(0, 0, 0);
+	margin-bottom: 20px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altura completa da janela */
+    margin: 0; /* Remove margens padrão do body */
+    background-color: #f9f9f9; /* Cor de fundo para visual melhor */
+    font-family: Arial, sans-serif;
+}
+
+h:form {
+    width: 100%;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+	<style>
+html, body {
+	touch-action: manipulation; /* Impede zoom por gestos */
+	overflow-x: hidden; /* Evita rolagem horizontal */
+}
+</style>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+	<title>Tarefas da Família</title>
+</h:head>
+
+<h:body>
+	<h:form id="subscriberForm">
+		<div class="container">
+			<div class="form-section" style="margin-top: 20px;">
+				<!-- Nome -->
+				<div class="form-group">
+					<h:inputText value="#{tarefasMB.tarefa.nome}" id="nome"
+						styleClass="form-control">
+						<f:passThroughAttribute name="placeholder"
+							value="Digite o nome da Tarefa" />
+					</h:inputText>
+				</div>
+
+				<!-- Responsável -->
+				<div class="form-group">
+					<h:selectOneMenu id="resp" value="#{tarefasMB.tarefa.responsavel}"
+						styleClass="form-control">
+						<f:selectItem itemLabel="Selecione Responsável" itemValue="" />
+						<f:selectItem itemLabel="Adriana" itemValue="Adriana" />
+						<f:selectItem itemLabel="Adriano" itemValue="Adriano" />
+						<f:selectItem itemLabel="Lorenzo" itemValue="Lorenzo" />
+					</h:selectOneMenu>
+				</div>
+
+				<!-- Descrição -->
+				<div class="form-group">
+					<h:inputTextarea value="#{tarefasMB.tarefa.descricao}"
+						id="descricao" styleClass="form-control" rows="4">
+						<f:passThroughAttribute name="placeholder"
+							value="Digite a descrição" />
+					</h:inputTextarea>
+				</div>
+
+				<!-- Botão de Envio -->
+				<div class="form-group text-center">
+					<h:commandButton value="Cadastrar" styleClass="btn btn-primary"
+						action="#{tarefasMB.inserirTarefa()}" />
+				</div>
+			</div>
+
+			<!-- Tabela Responsiva -->
+			<div class="form-section" style="margin-top: 20px;">
+				<div class="table-responsive">
+					<h:dataTable value="#{tarefasMB.listaTarefas}" var="tarefa"
+						styleClass="table table-striped table-bordered">
+
+						<h:column>
+							<f:facet name="header">Nome</f:facet>
+							<h:outputText value="#{tarefa.nome}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Responsável</f:facet>
+							<h:outputText value="#{tarefa.responsavel}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">Ações</f:facet>
+							<h:commandButton value="Excluir"
+								styleClass="btn btn-danger btn-sm"
+								action="#{tarefasMB.excluirTarefa(tarefa)}"
+								onclick="return confirm('Deseja realmente excluir esta tarefa?');" />
+						</h:column>
+
+
+					</h:dataTable>
+				</div>
+			</div>
+		</div>
+	</h:form>
+</h:body>
+
+</html>
